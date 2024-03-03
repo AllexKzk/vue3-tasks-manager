@@ -5,7 +5,7 @@
   </button>
 </template>
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   title: { type: String, required: false },
   variant: { type: String, default: 'primary' }
 })
@@ -22,24 +22,23 @@ button {
 }
 
 .primary {
-  background-image: linear-gradient(90deg, rgba(48,227,202,1) 0%, rgba(17,153,158,1) 70%);
+  background-image: linear-gradient(90deg, rgba(48, 227, 202, 1) 0%, rgba(17, 153, 158, 1) 70%);
   &:hover {
     background-position: 60%;
   }
 }
 
 .outlined {
-  border: 1px solid #11999E;
-  color: #11999E;
+  border: 1px solid #11999e;
+  color: #11999e;
   background: none;
   &:hover {
     color: white;
     border-color: none;
-    background-image: linear-gradient(90deg, rgba(48,227,202,1) 0%, rgba(17,153,158,1) 70%);
+    background-image: linear-gradient(90deg, rgba(48, 227, 202, 1) 0%, rgba(17, 153, 158, 1) 70%);
   }
 }
 .pill {
   border-radius: 1.2em;
 }
-
 </style>

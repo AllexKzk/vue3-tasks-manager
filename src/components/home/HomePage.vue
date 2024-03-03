@@ -3,9 +3,7 @@
     <div class="nav-container">
       <h1>Welcome Home!</h1>
       <nav>
-        <RouterLink to="/tasks" style="margin: 0.5em auto;">
-          Tasks
-        </RouterLink>
+        <RouterLink to="/tasks" style="margin: 0.5em auto"> Tasks </RouterLink>
         <TaskModal />
       </nav>
       <div class="today-tasks">
@@ -19,32 +17,29 @@
   </main>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue';
-import TaskModal from '../task-modal/TaskModal.vue';
-import { useTasksStore } from '@/stores/tasks';
-import type Task from '@/interfaces/Task';
-import AccordionCustom from '../common/AccordionCustom.vue';
-import TaskCheckbox from '../tasks/components/TaskCheckbox.vue';
+import { computed } from 'vue'
+import TaskModal from '../task-modal/TaskModal.vue'
+import { useTasksStore } from '@/stores/tasks'
+import type Task from '@/interfaces/Task'
+import AccordionCustom from '../common/AccordionCustom.vue'
+import TaskCheckbox from '../tasks/components/TaskCheckbox.vue'
 
 const todayTasks = computed(() =>
-  useTasksStore().tasks.filter((task: Task) =>
-    task.due === new Date().toISOString().slice(0, 10)
-  )
+  useTasksStore().tasks.filter((task: Task) => task.due === new Date().toISOString().slice(0, 10))
 )
-
 </script>
 <style scoped>
 @import '/src/styles/_colors.css';
 
 h1 {
-  color: #30E3CA;
-  background: linear-gradient(90deg, rgba(48,227,202,1) 0%, rgba(17,153,158,1) 70%);
+  color: #30e3ca;
+  background: linear-gradient(90deg, rgba(48, 227, 202, 1) 0%, rgba(17, 153, 158, 1) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
 }
 .nav-container {
-  margin: -20em  auto;
+  margin: -20em auto;
 
   nav {
     display: flex;
@@ -56,7 +51,7 @@ h1 {
       transition: all 0.3s;
     }
     a:hover {
-      color: #11999E;
+      color: #11999e;
     }
   }
 }

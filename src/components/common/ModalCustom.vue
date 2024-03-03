@@ -2,36 +2,36 @@
   <transition name="modal-dropdown">
     <div v-if="isVisible" class="modal-overlay" @click.self="close">
       <div class="modal-container">
-        <h2> {{ title }} </h2>
+        <h2>{{ title }}</h2>
         <span class="split" />
         <div class="modal-content">
           <slot></slot>
           <div class="buttons-footer">
             <ButtonCustom @click="close" variant="outlined" title="Close" />
-            <ButtonCustom style="margin-left: 0.5em;" @click="ok" title="Ok" />
+            <ButtonCustom style="margin-left: 0.5em" @click="ok" title="Ok" />
           </div>
-      </div>
+        </div>
       </div>
     </div>
   </transition>
 </template>
 
 <script setup>
-import ButtonCustom from './ButtonCustom.vue';
+import ButtonCustom from './ButtonCustom.vue'
 
-const props = defineProps({
+defineProps({
   isVisible: Boolean,
   title: String
-});
+})
 
-const emit = defineEmits(['close', 'ok']);
+const emit = defineEmits(['close', 'ok'])
 
 const close = () => {
-  emit('close');
-};
+  emit('close')
+}
 
 const ok = () => {
-  emit('ok');
+  emit('ok')
   close()
 }
 </script>
@@ -70,7 +70,7 @@ const ok = () => {
   border-radius: 5px;
 
   h2 {
-    color: #11999E;
+    color: #11999e;
     margin: 0.5em auto;
   }
 }
@@ -85,16 +85,21 @@ const ok = () => {
   cursor: pointer;
 }
 
-.modal-dropdown-enter-active, .modal-dropdown-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+.modal-dropdown-enter-active,
+.modal-dropdown-leave-active {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
-.modal-dropdown-enter-from, .modal-dropdown-leave-to {
+.modal-dropdown-enter-from,
+.modal-dropdown-leave-to {
   opacity: 0;
   transform: translateY(-50px);
 }
 
-.modal-dropdown-enter-to, .modal-dropdown-leave-from {
+.modal-dropdown-enter-to,
+.modal-dropdown-leave-from {
   opacity: 1;
   transform: translateY(0);
 }

@@ -8,23 +8,23 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
-import ArrowIcon from './icons/ArrowIcon.vue';
+import { computed, reactive } from 'vue'
+import ArrowIcon from './icons/ArrowIcon.vue'
 
 const props = defineProps({
   title: { type: String, required: true },
   variant: { type: String, default: 'primary' },
   active: { type: Boolean, default: false }
-});
+})
 
-const state = reactive({ isOpen: props.active });
+const state = reactive({ isOpen: props.active })
 
 const arrowStyle = computed(() => ({
-  transform: `rotate(${ state.isOpen ? '-90deg' : '0deg' })`
+  transform: `rotate(${state.isOpen ? '-90deg' : '0deg'})`
 }))
 
 const accordionStyle = computed(() => ({
-  maxHeight: state.isOpen ? '500px' : '0',
+  maxHeight: state.isOpen ? '500px' : '0'
 }))
 
 const toggleBlock = () => {
@@ -54,7 +54,7 @@ const toggleBlock = () => {
 }
 
 .primary {
-  background: linear-gradient(45deg, rgba(48,227,202,1) 0%, rgba(17,153,158,1) 70%); 
+  background: linear-gradient(45deg, rgba(48, 227, 202, 1) 0%, rgba(17, 153, 158, 1) 70%);
   background-size: 200% 200%;
   &:hover {
     background-position: 50%;
@@ -63,9 +63,9 @@ const toggleBlock = () => {
 }
 
 .outlined {
-  border: 1px solid #11999E;
+  border: 1px solid #11999e;
   background: none;
-  color: #11999E;
+  color: #11999e;
   svg {
     filter: invert(52%) sepia(73%) saturate(4862%) hue-rotate(154deg) brightness(93%) contrast(87%);
   }

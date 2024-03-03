@@ -4,7 +4,7 @@
   </ButtonCustom>
   <div class="page-container">
     <TaskModal />
-    <h2 style="margin: 0.5em auto;">Tasks:</h2>
+    <h2 style="margin: 0.5em auto">Tasks:</h2>
     <div class="dates-container">
       <TaskBar @change="updateFilters" />
       <AccordionCustom v-for="[day, tasks] in Object.entries(schedule)" :key="day" :title="day">
@@ -17,25 +17,25 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue';
+import { computed, reactive } from 'vue'
 
-import TaskModal from '../task-modal/TaskModal.vue';
+import TaskModal from '../task-modal/TaskModal.vue'
 import AccordionCustom from '@/components/common/AccordionCustom.vue'
 
-import { useTasksStore } from '../../stores/tasks';
-import type Task from '@/interfaces/Task';
-import TaskCheckbox from './components/TaskCheckbox.vue';
-import TaskBar from './components/TaskBar.vue';
-import ButtonCustom from '../common/ButtonCustom.vue';
-import ArrowIcon from '../common/icons/ArrowIcon.vue';
-import router from '@/router';
+import { useTasksStore } from '../../stores/tasks'
+import type Task from '@/interfaces/Task'
+import TaskCheckbox from './components/TaskCheckbox.vue'
+import TaskBar from './components/TaskBar.vue'
+import ButtonCustom from '../common/ButtonCustom.vue'
+import ArrowIcon from '../common/icons/ArrowIcon.vue'
+import router from '@/router'
 
-const tasksStore = useTasksStore();
+const tasksStore = useTasksStore()
 
-const state = reactive({ tasks: tasksStore.tasks });
+const state = reactive({ tasks: tasksStore.tasks })
 
 const schedule = computed(() => {
-  const days: { [day: string]: Task[] } = {};
+  const days: { [day: string]: Task[] } = {}
   state.tasks.forEach((task: Task) => {
     if (days?.[task.due]) {
       days[task.due].push(task)
@@ -43,13 +43,14 @@ const schedule = computed(() => {
       days[task.due] = [task]
     }
   })
-  return days;
+  return days
 })
 
-const updateFilters = (filters: { name: string, date: Date | undefined }) => {
-  state.tasks = tasksStore.tasks.filter((task: Task) => 
-    (!filters.name || task.title === filters.name) &&
-    (!filters.date || task.due === filters.date.toString())
+const updateFilters = (filters: { name: string; date: Date | undefined }) => {
+  state.tasks = tasksStore.tasks.filter(
+    (task: Task) =>
+      (!filters.name || task.title === filters.name) &&
+      (!filters.date || task.due === filters.date.toString())
   )
 }
 
@@ -57,7 +58,6 @@ const backHome = () => {
   router.push('/')
   router.go(1)
 }
-
 </script>
 <style scoped>
 .page-container {

@@ -4,11 +4,7 @@ import type Task from '@/interfaces/Task'
 
 export const useTasksStore = defineStore('useTasksStore', () => {
   const storageString = localStorage.getItem('tasks') /* without backend */
-  const tasks = ref<Task[]>(
-    storageString
-      ? JSON.parse(storageString)
-      : []
-  )
+  const tasks = ref<Task[]>(storageString ? JSON.parse(storageString) : [])
   let lastId = tasks.value.length ? tasks.value[tasks.value.length - 1].id : 0
 
   function findTaskById(taskId?: number) {

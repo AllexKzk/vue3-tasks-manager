@@ -6,11 +6,10 @@
 </template>
 <script setup lang="ts">
 defineProps({
-  label: { type: String, required: false },
+  label: { type: String, required: false }
 })
 
 const value = defineModel({ type: String, required: true })
-
 </script>
 <style scoped>
 .textarea-container {
@@ -26,15 +25,15 @@ const value = defineModel({ type: String, required: true })
 
   textarea {
     resize: none;
-    border: 1px solid #11999E;
+    border: 1px solid #11999e;
     font-size: 1.2em;
     border-radius: 4px;
     transition: all 0.3s ease;
 
     &:focus {
       outline: none;
-      border: 1px solid #11999E;
-      box-shadow: 0 0 4px #30E3CA;
+      border: 1px solid #11999e;
+      box-shadow: 0 0 4px #30e3ca;
     }
   }
 }
