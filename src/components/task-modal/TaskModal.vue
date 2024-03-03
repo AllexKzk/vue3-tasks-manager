@@ -15,11 +15,11 @@
 import { reactive, ref, watch } from 'vue'
 
 import ButtonCustom from '@/components/common/ButtonCustom.vue'
-import ModalCustom from '@/components/common/ModalCustom.vue'
 import InputCustom from '@/components/common/InputCustom.vue'
 import TextAreaCustom from '@/components/common/TextAreaCustom.vue'
+import ModalCustom from '@/components/common/ModalCustom.vue'
 
-import { useTasksStore } from '@/stores/tasks.ts'
+import { useTasksStore } from '@/stores/tasks'
 import type Task from '@/interfaces/Task'
 
 const tasksStore = useTasksStore()

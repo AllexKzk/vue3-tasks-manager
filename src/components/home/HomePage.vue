@@ -34,6 +34,7 @@ const todayTasks = computed(() =>
 h1 {
   color: #30e3ca;
   background: linear-gradient(90deg, rgba(48, 227, 202, 1) 0%, rgba(17, 153, 158, 1) 70%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;

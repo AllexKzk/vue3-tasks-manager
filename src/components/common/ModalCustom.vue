@@ -16,7 +16,7 @@
   </transition>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ButtonCustom from './ButtonCustom.vue'
 
 defineProps({
@@ -35,8 +35,7 @@ const ok = () => {
   close()
 }
 </script>
-
-<style>
+<style scoped>
 .split {
   background: #999;
   opacity: 0.5;
