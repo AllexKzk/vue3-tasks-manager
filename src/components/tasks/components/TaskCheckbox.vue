@@ -1,19 +1,18 @@
 <template>
   <div :class="['task-container', state.isChecked ? 'checked' : '']">
     <div class="label">
-      <CheckboxCustom v-model="state.isChecked" />
+      <CheckboxCustom v-model="state.isChecked" style="height: fit-content; margin: auto 0.5em;" />
       <p>{{ task.title }}</p>
     </div>
     <div class="tools">
-      <CrossIcon @click="state.isDelete = true" />
+      <CrossIcon @click="state.isDelete = true" style="margin: auto 0.5em;" />
       <DeleteTaskModal
         :taskId="task.id!"
         :isVisible="state.isDelete"
         @close="state.isDelete = false"
       />
-      <EditIcon @click="state.isEdit = true" />
+      <EditIcon @click="state.isEdit = true" style="margin: auto 0.5em;" />
       <TaskModal :task="task" :isVisible="state.isEdit" @close="state.isEdit = false" />
-      <ArrowIcon />
     </div>
   </div>
 </template>
@@ -81,6 +80,7 @@ watch(
 }
 .tools {
   display: flex;
+  justify-content: end;
   position: relative;
   overflow: hidden;
 

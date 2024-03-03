@@ -21,6 +21,7 @@ const value = defineModel()
 .input-container {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   padding: 1em;
 }
 .group {

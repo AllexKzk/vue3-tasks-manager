@@ -50,6 +50,12 @@ const reset = () => {
   .search {
     display: flex;
   }
+  @media(max-width: 750px) {
+    .cross {
+      width: 100%;
+    }
+    flex-direction: column;
+  }
 }
 .cross {
   margin: auto;

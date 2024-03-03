@@ -33,7 +33,6 @@ const toggleBlock = () => {
 </script>
 <style scoped>
 .header {
-  width: 100%;
   margin: 0.2em 0;
   border-radius: 8px;
   color: white;
@@ -74,7 +73,7 @@ const toggleBlock = () => {
 .accordion {
   background-color: white;
   max-height: 0;
-  overflow: auto;
+  overflow-y: auto;
   transition: max-height 0.2s ease-out;
 }
 </style>
