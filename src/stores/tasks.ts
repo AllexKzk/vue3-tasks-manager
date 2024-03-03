@@ -5,7 +5,7 @@ import type Task from '@/interfaces/Task'
 export const useTasksStore = defineStore('useTasksStore', () => {
   const storageString = localStorage.getItem('tasks') /* without backend */
   const tasks = ref<Task[]>(storageString ? JSON.parse(storageString) : [])
-  let lastId = tasks.value[tasks.value.length - 1].id ?? 0
+  let lastId = tasks.value.length ? tasks.value[tasks.value.length - 1].id : 0
 
   function findTaskById(taskId?: number) {
     return tasks.value.findIndex((task: Task) => task.id === taskId)
@@ -16,7 +16,7 @@ export const useTasksStore = defineStore('useTasksStore', () => {
   }
 
   function addTask(newTask: Task) {
-    lastId += 1
+    lastId = (lastId ?? 0) + 1
     tasks.value.push({ ...newTask, id: lastId })
     save()
   }
