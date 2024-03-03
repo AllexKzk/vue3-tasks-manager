@@ -1,7 +1,7 @@
 <template>
   <ButtonCustom
     v-if="!task"
-    style="margin: 1em auto;"
+    style="margin: 0.5em auto;"
     @click="showModal = true"
     title="Add new task"
   />
@@ -40,9 +40,18 @@ const modalState = reactive<Task>({
 });
 
 const showModal = ref(props.isVisible ?? false);
-watch(() => props.isVisible, () => showModal.value = props.isVisible)
+watch(() => props.isVisible, () => {
+  showModal.value = props.isVisible;
+  if (props.isVisible) {
+    modalState.id = props.task?.id ?? undefined;
+    modalState.title = props.task?.title ?? '';
+    modalState.description = props.task?.description ?? '';
+    modalState.due = props.task?.due ?? new Date().toISOString().slice(0, 10);
+  }
+})
 
 const update = () => {
+  console.log({ ...modalState })
   if (modalState.id === undefined) {
     tasksStore.addTask(modalState);
   } else {

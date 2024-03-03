@@ -69,7 +69,7 @@ watch(
       color: #999;
     }
     svg {
-      transform: translateY(1em);
+      transform: translateY(1.5em);
     }
   }
 }
@@ -89,7 +89,7 @@ watch(
     width: 0.9em;
 
     transition: all 0.5s;
-    transform: translateY(1em);
+    transform: translateY(1.5em);
   }
 }
 </style>

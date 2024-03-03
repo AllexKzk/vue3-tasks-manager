@@ -4,14 +4,15 @@
       <input :type="type" v-model="value" required>
       <span class="highlight" />
       <span class="bar" />
-      <label> {{ label }} </label>
+      <label :class="{ active: active }"> {{ label }} </label>
     </div>
   </div>
 </template>
 <script setup lang="ts">
-const props = defineProps({
+defineProps({
   type: { type: String, default: 'text' },
   label: { type: String, required: false },
+  active: { type: Boolean, default: false },
 })
 
 const value = defineModel()
@@ -27,11 +28,11 @@ const value = defineModel()
   position: relative; 
 }
 input {
-  font-size: 1em;
+  font-size: 1.2em;
   display: block;
   width: 100%;
   border: none;
-  padding: 0.5em 0;
+  padding: 10px 0;
   border-bottom: 1px solid #757575;
 }
 input:focus {
@@ -50,9 +51,9 @@ label {
   transition: 0.2s ease all; 
 }
 
-input:focus ~ label, input:valid ~ label {
+input:focus ~ label, input:valid ~ label, .active {
   top: -20px;
-  font-size: 1em;
+  font-size: 1.2em;
   color: #11999E;
 }
 

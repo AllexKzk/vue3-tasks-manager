@@ -1,11 +1,12 @@
 <template>
   <button :class="variant">
     {{ title }}
+    <slot></slot>
   </button>
 </template>
 <script setup lang="ts">
 const props = defineProps({
-  title: { type: String, required: true },
+  title: { type: String, required: false },
   variant: { type: String, default: 'primary' }
 })
 </script>

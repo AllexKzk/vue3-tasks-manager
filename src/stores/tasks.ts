@@ -9,7 +9,7 @@ export const useTasksStore = defineStore('useTasksStore', () => {
       ? JSON.parse(storageString)
       : []
   )
-  let lastId = 0
+  let lastId = tasks.value.length ? tasks.value[tasks.value.length - 1].id : 0
 
   function findTaskById(taskId?: number) {
     return tasks.value.findIndex((task: Task) => task.id === taskId)
@@ -36,6 +36,7 @@ export const useTasksStore = defineStore('useTasksStore', () => {
 
   function changeTask(updatedTask: Task) {
     const index = findTaskById(updatedTask.id)
+    console.log(updatedTask, index)
     if (index !== undefined) {
       tasks.value[index] = updatedTask
       save()

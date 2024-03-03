@@ -4,8 +4,6 @@
 <style scoped>
 svg {
   transition: all 0.3s ease; 
-  &:hover {
-    filter: invert(41%) sepia(33%) saturate(4064%) hue-rotate(155deg) brightness(94%) contrast(87%);
-  }
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
 </style>
