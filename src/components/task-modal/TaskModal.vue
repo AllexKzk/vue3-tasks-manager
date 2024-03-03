@@ -34,15 +34,29 @@ const modalState = reactive<Task>({
 })
 
 const showModal = ref(props.isVisible ?? false)
+
+const setModal = () => {
+  modalState.id = props.task?.id ?? undefined
+  modalState.title = props.task?.title ?? ''
+  modalState.description = props.task?.description ?? ''
+  modalState.due = props.task?.due ?? new Date().toISOString().slice(0, 10)
+}
+
+watch(
+  () => showModal.value,
+  () => {
+    if (showModal.value) {
+      setModal()
+    }
+  }
+)
+
 watch(
   () => props.isVisible,
   () => {
     showModal.value = props.isVisible
     if (props.isVisible) {
-      modalState.id = props.task?.id ?? undefined
-      modalState.title = props.task?.title ?? ''
-      modalState.description = props.task?.description ?? ''
-      modalState.due = props.task?.due ?? new Date().toISOString().slice(0, 10)
+      setModal()
     }
   }
 )

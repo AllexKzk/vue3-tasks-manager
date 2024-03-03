@@ -3,7 +3,9 @@
     <div class="nav-container">
       <h1>Welcome Home!</h1>
       <nav>
-        <RouterLink to="/tasks" style="margin: 0.5em auto"> Tasks </RouterLink>
+        <ButtonCustom @click="goToTasks" variant="outlined">
+          All Tasks
+        </ButtonCustom>
         <TaskModal />
       </nav>
       <div class="today-tasks">
@@ -23,10 +25,16 @@ import { useTasksStore } from '@/stores/tasks'
 import type Task from '@/interfaces/Task'
 import AccordionCustom from '../common/AccordionCustom.vue'
 import TaskCheckbox from '../tasks/components/TaskCheckbox.vue'
+import ButtonCustom from '../common/ButtonCustom.vue'
+import router from '@/router'
 
 const todayTasks = computed(() =>
   useTasksStore().tasks.filter((task: Task) => task.due === new Date().toISOString().slice(0, 10))
 )
+const goToTasks = () => {
+  router.push('/tasks');
+  router.go(1);
+}
 </script>
 <style scoped>
 @import '/src/styles/_colors.css';

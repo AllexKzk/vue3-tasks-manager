@@ -1,8 +1,34 @@
 {
-  "hash": "973478c3",
+  "hash": "4c0ebe4e",
   "configHash": "a0efbaf7",
-  "lockfileHash": "e3b0c442",
-  "browserHash": "1ed7bb9a",
-  "optimized": {},
-  "chunks": {}
+  "lockfileHash": "9ab7a87a",
+  "browserHash": "f9597c20",
+  "optimized": {
+    "vue": {
+      "src": "../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
+      "file": "vue.js",
+      "fileHash": "7329f240",
+      "needsInterop": false
+    },
+    "pinia": {
+      "src": "../../node_modules/pinia/dist/pinia.mjs",
+      "file": "pinia.js",
+      "fileHash": "3fa62dc5",
+      "needsInterop": false
+    },
+    "vue-router": {
+      "src": "../../node_modules/vue-router/dist/vue-router.mjs",
+      "file": "vue-router.js",
+      "fileHash": "fdf36172",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-AYVSL3LM": {
+      "file": "chunk-AYVSL3LM.js"
+    },
+    "chunk-GU3YDFVY": {
+      "file": "chunk-GU3YDFVY.js"
+    }
+  }
 }
