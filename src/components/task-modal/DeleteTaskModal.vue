@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import ModalCustom from '@/components/common/ModalCustom.vue'
 
-import { useTasksStore } from '@/stores/tasks.ts'
+import { useTasksStore } from '@/stores/tasks'
 
 const tasksStore = useTasksStore()
 
